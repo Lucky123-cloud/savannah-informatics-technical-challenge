@@ -16,7 +16,7 @@ The project is equipped with tests and code coverage metrics using codecov which
 1. Clone the repo
 
 ````bash
-git clone https://github.com/balagrivine/savannah-informatics-technical-challenge
+git clone https://github.com/Lucky123-cloud/savannah-informatics-technical-challenge.git
 ````
 
 2. Go To The Project Root Directory
@@ -28,8 +28,8 @@ cd savannah-informatics-technical-challenge
 3. Create a Python3.12 virtual environment and activate it
 
 ````bash
-python3.12 -m venv env
-source env/bin/activate
+python -m venv env
+.\env\Scripts\Activate
 ````
 
 4. Install dependencies
@@ -40,7 +40,12 @@ pip install -r requirements.txt
 5. Migrate the database schema to apply them locally
 ````bash
 psql -U <user> - h <host> -a scripts/create_tables.sql
+psql -U postgres -h localhost -d savannah_db -a -f scripts/create_tables.sql
+
 ````
+
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -h localhost -d savannah_db -a -f scripts/create_tables.sql
+
 
 6. Running tests and generating coverage reports
 
