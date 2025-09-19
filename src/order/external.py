@@ -15,7 +15,7 @@ async def send_sms(customer_phone_number: str, order_message: str):
     try:
         response = sms.send(
             message=order_message,
-            recipients=[f"+{customer_phone_number}"]
+            recipients=[f"+254{customer_phone_number}"]
         )
 
         print(response)
