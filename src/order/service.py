@@ -18,7 +18,7 @@ async def create_new_order(order: OrderCreate):
             order_price=order.price,
             item_id=order.item_id
         )
-        order_message = "Your order has been succesfully placed. Thank you for shopping with us."
+        order_message = "Your order has been succesfully placed. We are working on it right away. Thank you for shopping with us."
         customer = customer_repo.get_customer_by_id(order.customer_id)
 
         await send_sms(customer["phone"], order_message)

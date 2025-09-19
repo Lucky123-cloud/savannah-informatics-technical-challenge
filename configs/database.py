@@ -24,7 +24,7 @@ class InitDB:
                 password=self.db_password,
                 port=self.db_port,
                 host=self.db_host,
-                sslmode="require"
+                sslmode="disable"
             ) as conn:
                 return conn
         except psycopg2.OperationalError as e:

@@ -6,7 +6,7 @@ from src.customer.routes import customer_router
 from src.order.routes import order_router
 
 app = FastAPI(
-        title="Savannah Informatics E-Commerce",
+        title="Savannah Informatics Online Store",
         docs_url="/"
     )
 

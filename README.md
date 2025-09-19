@@ -44,8 +44,6 @@ psql -U postgres -h localhost -d savannah_db -a -f scripts/create_tables.sql
 
 ````
 
-"C:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -h localhost -d savannah_db -a -f scripts/create_tables.sql
-
 
 6. Running tests and generating coverage reports
 
@@ -56,15 +54,15 @@ Copy the content on .env.example to .env file:
 cp .env.example .env
 ````
 
-The env file should look like this abd you can change the values  to your own preference
+The env file should look like this and make sue to change the values to your own prefences
 
 ````bash
 # Database Configurations
 DB_HOST = "127.0.0.1"
 DB_PORT = "5432"
-DB_USER = "user"
-DB_NAME = "customer_order_service"
-DB_PASSWORD = "password"
+DB_USER = "postgres"
+DB_NAME = "savannah_db"
+DB_PASSWORD = "your_own_password_you_set_up_during_postgres_installation"
 
 # Google credentials to configure OAuth2.0
 GOOGLE_CLIENT_ID = ""
@@ -77,13 +75,34 @@ API_KEY               = " "
 USERNAME              = " "
 ````
 
+# Add your secret key - is used to sign the session cookies, so nobody can tamper with them.
+You can generate them this way:
+
+import secrets
+print(secrets.token_hex(32))
+
+or:
+
+Just use a secret_key of your liking like "supersecretkey"
+
+SECRET_KEY= " "
+
+````
+
+###Algorithm
+The algorithm defines how JSON Web Tokens (JWTs) are signed and verified.  
+This project uses **HS256 (HMAC with SHA-256)**, which relies on a shared secret key for both signing and verification.  
+It ensures tokens are secure and tamper-proof, enabling safe authentication and authorization.
+So add it in your .env file like this -> ALGORITHM=""
+
+
 ````bash
 pytest --cov --cov-report=xml
 ````
 
 7. Run the application
 ````bash
-python3 -m uvicorn main:app
+python -m uvicorn src.main:app
 ````
 
 ### Running the application in a Docker container
