@@ -122,7 +122,7 @@ print(secrets.token_hex(32))
 pytest --cov --cov-report=xml
 ```
 
-Coverage reports are sent to [Codecov](https://codecov.io/gh/balagrivine/savannah-informatics-technical-challenge).
+Coverage reports are sent to [Codecov](https://codecov.io/gh/Lucky123-cloud/savannah-informatics-technical-challenge).
 
 ---
 
