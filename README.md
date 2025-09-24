@@ -1,6 +1,7 @@
 # Savannah Informatics Technical Challenge
 
-[![codecov](https://codecov.io/gh/balagrivine/savannah-informatics-technical-challenge/graph/badge.svg?token=46HVRUE4WI)](https://codecov.io/gh/balagrivine/savannah-informatics-technical-challenge)
+[![codecov](https://codecov.io/gh/Lucky123-cloud/savannah-informatics-technical-challenge/graph/badge.svg?token=YOUR_TOKEN)](https://codecov.io/gh/Lucky123-cloud/savannah-informatics-technical-challenge)
+
 
 This project is a **web service** built using **Python FastAPI** with a **PostgreSQL database**. It allows managing customers and orders, with automated SMS notifications for new orders.
 
