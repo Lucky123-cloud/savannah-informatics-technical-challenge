@@ -2,9 +2,9 @@ name: CI with Coverage
 
 on:
   push:
-    branches: [ main ]
+    branches: ["*"]        # run on any branch push
   pull_request:
-    branches: [ main ]
+    branches: ["*"]        # run on any branch PR
 
 jobs:
   test:
@@ -29,7 +29,7 @@ jobs:
       DB_NAME: test_db
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_HOST: postgres
+      DB_HOST: postgres   # service name, not localhost
       DB_PORT: 5432
 
     steps:
@@ -47,10 +47,10 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-cov
 
-      # (optional) run migrations if your tests need tables
-    #  - name: Run migrations
-    #     run: |
-    #       psql -h localhost -U postgres -d test_db -c "CREATE TABLE IF NOT EXISTS customers(id SERIAL PRIMARY KEY, name TEXT, email TEXT UNIQUE, password TEXT);" 
+      # Uncomment if migrations are required
+      # - name: Run migrations
+      #   run: |
+      #     psql -h postgres -U postgres -d test_db -c "CREATE TABLE IF NOT EXISTS customers(id SERIAL PRIMARY KEY, name TEXT, email TEXT UNIQUE, password TEXT);"
 
       - name: Run tests with coverage
         run: pytest --cov=. --cov-branch --cov-report=xml
