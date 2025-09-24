@@ -47,11 +47,6 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-cov psycopg2-binary sqlalchemy
 
-      # Uncomment if migrations are required
-      # - name: Run migrations
-      #   run: |
-      #     psql -h postgres -U postgres -d test_db -c "CREATE TABLE IF NOT EXISTS customers(id SERIAL PRIMARY KEY, name TEXT, email TEXT UNIQUE, password TEXT);"
-
       - name: Run tests with coverage
         run: pytest --cov=. --cov-branch --cov-report=xml
 
