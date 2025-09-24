@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 import psycopg2
 
-load_dotenv()
+load_dotenv(override=False)
 
 class InitDB:
     """Initializes a postgresql database connection"""
